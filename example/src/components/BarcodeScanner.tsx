@@ -1,19 +1,20 @@
-import {useState, useRef, useMemo, useEffect, memo} from 'react';
-import {BarcodeScanner as ReactBarcodeScanner} from '@thewirv/react-barcode-scanner';
+import { memo, useEffect, useMemo, useRef, useState } from 'react';
+import type { ReactNode } from 'react';
+import { BarcodeScanner as ReactBarcodeScanner } from '@thewirv/react-barcode-scanner';
 import Viewfinder from './Viewfinder';
-import {useComponentDimensions} from './useComponentDimensions';
+import { useComponentDimensions } from './useComponentDimensions';
 
 interface Props {
-  description?: string | JSX.Element;
+  description?: ReactNode;
   onScan: (data: string) => void;
   onError?: () => void;
 }
 
-function BarcodeScanner({description, onScan, onError}: Props) {
+function BarcodeScanner({ description, onScan, onError }: Props) {
   const [doScan, setDoScan] = useState(true);
   const [error, setError] = useState('');
   const containerRef = useRef<HTMLDivElement>(null);
-  const {width: containerWidth} = useComponentDimensions(containerRef);
+  const { width: containerWidth } = useComponentDimensions(containerRef);
 
   const videoStyle = useMemo(
     () => ({
@@ -21,7 +22,7 @@ function BarcodeScanner({description, onScan, onError}: Props) {
       height: 375,
       margin: '0 auto',
     }),
-    []
+    [],
   );
 
   useEffect(() => {
@@ -61,21 +62,14 @@ function BarcodeScanner({description, onScan, onError}: Props) {
 
             setDoScan(false);
             setError(errorMessage);
-            onError && onError();
+            onError?.();
           }}
-          videoContainerStyle={{...videoStyle, paddingTop: 0}}
+          videoContainerStyle={{ ...videoStyle, paddingTop: 0 }}
           videoStyle={videoStyle}
-          Viewfinder={() => (
-            <Viewfinder
-              containerWidth={containerWidth}
-              containerHeight={videoStyle.height}
-            />
-          )}
+          Viewfinder={() => <Viewfinder containerWidth={containerWidth} containerHeight={videoStyle.height} />}
         />
       </div>
-      <button
-        onMouseDown={() => setDoScan((prev) => !prev)}
-        style={{marginTop: 12}}>
+      <button onMouseDown={() => setDoScan((prev) => !prev)} style={{ marginTop: 12 }}>
         Toggle
       </button>
     </>

@@ -1,4 +1,4 @@
 import BarcodeScanner from './BarcodeScanner';
 
-export {BarcodeScanner};
-export * from './types';
+export { BarcodeScanner };
+export type { BarcodeScannerProps } from './types';

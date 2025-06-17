@@ -1,6 +1,6 @@
-import {CSSProperties, ReactElement, VideoHTMLAttributes} from 'react';
+import type { CSSProperties, ReactElement, VideoHTMLAttributes } from 'react';
 
-export type BarcodeScannerProps = {
+export interface BarcodeScannerProps {
   /**
    * Controls whether the scanner should be scanning or not
    */
@@ -46,7 +46,5 @@ export type BarcodeScannerProps = {
    */
   videoProps?:
     | VideoHTMLAttributes<HTMLVideoElement>
-    | ((
-        defaultProps: VideoHTMLAttributes<HTMLVideoElement>
-      ) => VideoHTMLAttributes<HTMLVideoElement>);
-};
+    | ((defaultProps: VideoHTMLAttributes<HTMLVideoElement>) => VideoHTMLAttributes<HTMLVideoElement>);
+}

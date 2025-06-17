@@ -1,4 +1,4 @@
-# React Barcode Scanner [![npm version](https://badge.fury.io/js/@thewirv%2Freact-barcode-scanner.svg)](https://badge.fury.io/js/@thewirv%2Freact-barcode-scanner) [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT) [![Known Vulnerabilities](https://snyk.io/test/github/TheWirv/react-barcode-scanner/badge.svg)](https://snyk.io/test/github/TheWirv/react-barcode-scanner)
+# React Barcode Scanner [![npm version](https://badge.fury.io/js/@thewirv%2Freact-barcode-scanner.svg)](https://badge.fury.io/js/@thewirv%2Freact-barcode-scanner) [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT) [![Known Vulnerabilities](https://snyk.io/test/github/compeso-mgruenwald/react-barcode-scanner/badge.svg)](https://snyk.io/test/github/compeso-mgruenwald/react-barcode-scanner)
 
 :rocket: React Barcode Scanner component.
 
@@ -35,12 +35,18 @@ This library utilizes the [ZXing library](https://github.com/zxing-js/browser) a
 
 ## Installation
 
-You can install this library via bun, yarn, or npm.
+You can install this library via bun, pnpm, yarn, or npm.
 
 ### bun
 
 ```bash
 bun add @thewirv/react-barcode-scanner
+```
+
+### pnpm
+
+```bash
+pnpm add @thewirv/react-barcode-scanner
 ```
 
 ### yarn
@@ -52,7 +58,7 @@ yarn add @thewirv/react-barcode-scanner
 ### npm
 
 ```bash
-npm i @thewirv/react-barcode-scanner
+npm i --save @thewirv/react-barcode-scanner
 ```
 
 ## Example Usage
@@ -63,7 +69,7 @@ After reading and performing the previous steps, you should be able to import th
 import {useState} from 'react';
 import {BarcodeScanner} from '@thewirv/react-barcode-scanner';
 
-const Test = (props: Props) => {
+function Test(props: Props) {
   const [data, setData] = useState('No result');
 
   return (
@@ -81,31 +87,32 @@ const Test = (props: Props) => {
       <p>{data}</p>
     </>
   );
-};
+}
 ```
 
 ## Component API
 
 The `BarcodeScanner` component has the following props:
 
-| Properties            | Types                                                                                                                                                        | Default Value                                                   | Required | Description                                              |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------- | -------- | -------------------------------------------------------- |
-| `doScan`              | `boolean`                                                                                                                                                    | `true`                                                          | ☐        | Controls whether the scanner should be scanning or not   |
-| `constraints`         | [MediaTrackConstraints](https://developer.mozilla.org/en-US/docs/Web/API/MediaTrackConstraints)                                                              | `{ facingMode: 'user' }`                                        | ☐        | Specify which camera should be used (if available)       |
-| `onSuccess`           | `(text: string) => void`                                                                                                                                     | none                                                            | 🗹        | Callback for retrieving the result                       |
-| `onError`             | `(e?: Error) => void`                                                                                                                                        | none                                                            | 🗹        | Callback for retrieving the error if one occurs          |
-| `onLoad`              | `() => void`                                                                                                                                                 | none                                                            | ☐        | Callback for when the camera feed has been loaded         |
-| `Viewfinder`          | `React.ReactElement`                                                                                                                                         | none                                                            | ☐        | Viewfinder component to render on top of the `video` element |
-| `containerStyle`      | `React.CSSProperties`                                                                                                                                        | none                                                            | ☐        | Style object for the whole component's wrapping `section` element          |
-| `videoContainerStyle` | `React.CSSProperties`                                                                                                                                        | none                                                            | ☐        | Style object for the video's container `div` element             |
-| `videoStyle`          | `React.CSSProperties`                                                                                                                                        | none                                                            | ☐        | Style object for the `video` element                       |
-| `videoProps`          | Either object of type `VideoHTMLAttributes<HTMLVideoElement>` or function that returns such an object and gets passed the default values set by this package | Check `defaultVideoProps` inside `src/BarcodeScanner/index.tsx` | ☐        | Passed to the underlying `video` element                 |
+| Properties            | Types                                                                                                                                                        | Default Value                                                   | Required | Description                                                       |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------- | -------- | ----------------------------------------------------------------- |
+| `doScan`              | `boolean`                                                                                                                                                    | `true`                                                          | ☐        | Controls whether the scanner should be scanning or not            |
+| `constraints`         | [MediaTrackConstraints](https://developer.mozilla.org/en-US/docs/Web/API/MediaTrackConstraints)                                                              | `{ facingMode: 'user' }`                                        | ☐        | Specify which camera should be used (if available)                |
+| `onSuccess`           | `(text: string) => void`                                                                                                                                     | none                                                            | 🗹        | Callback for retrieving the result                                |
+| `onError`             | `(e?: Error) => void`                                                                                                                                        | none                                                            | 🗹        | Callback for retrieving the error if one occurs                   |
+| `onLoad`              | `() => void`                                                                                                                                                 | none                                                            | ☐        | Callback for when the camera feed has been loaded                 |
+| `Viewfinder`          | `React.ReactElement`                                                                                                                                         | none                                                            | ☐        | Viewfinder component to render on top of the `video` element      |
+| `containerStyle`      | `React.CSSProperties`                                                                                                                                        | none                                                            | ☐        | Style object for the whole component's wrapping `section` element |
+| `videoContainerStyle` | `React.CSSProperties`                                                                                                                                        | none                                                            | ☐        | Style object for the video's container `div` element              |
+| `videoStyle`          | `React.CSSProperties`                                                                                                                                        | none                                                            | ☐        | Style object for the `video` element                              |
+| `videoProps`          | Either object of type `VideoHTMLAttributes<HTMLVideoElement>` or function that returns such an object and gets passed the default values set by this package | Check `defaultVideoProps` inside `src/BarcodeScanner/index.tsx` | ☐        | Passed to the underlying `video` element                          |
 
-## Maintainers
+## Maintainers (latest to earliest)
 
-- Improved by [@TheWirv](https://github.com/TheWirv) .
-- Created by [@JodusNodus](https://github.com/JodusNodus) .
-- Revived thanks to [@JonatanSalas](https://github.com/JonatanSalas) and his company [@BlackBoxVision](https://github.com/BlackBoxVision) .
+- Currently maintained by [@compeso-mgruenwald](https://github.com/compeso-mgruenwald).
+- Improved by [@TheWirv](https://github.com/TheWirv).
+- Created by [@JodusNodus](https://github.com/JodusNodus).
+- Revived thanks to [@JonatanSalas](https://github.com/JonatanSalas) and his company [@BlackBoxVision](https://github.com/BlackBoxVision).
 
 ## Browser Support
 
@@ -113,8 +120,8 @@ If you need to support older browsers, checkout [this guide](https://github.com/
 
 ## Issues
 
-Please, open an [issue](https://github.com/TheWirv/react-barcode-scanner/issues) following one of the issues templates. We will do our best to fix them.
+Please, open an [issue](https://github.com/compeso-mgruenwald/react-barcode-scanner/issues) following one of the issues templates. We will do our best to fix them.
 
 ## License
 
-Distributed under the **MIT license**. See [LICENSE](https://github.com/TheWirv/react-barcode-scanner/blob/master/LICENSE) for more information.
+Distributed under the **MIT license**. See [LICENSE](https://github.com/compeso-mgruenwald/react-barcode-scanner/blob/master/LICENSE) for more information.

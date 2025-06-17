@@ -1,17 +1,17 @@
-import {memo} from 'react';
+import { memo } from 'react';
 
 interface Props {
   containerWidth: number;
   containerHeight: number;
 }
 
-function Viewfinder({containerWidth, containerHeight}: Props) {
+function Viewfinder({ containerWidth, containerHeight }: Props) {
   return (
     <svg
-      viewBox="0 0 100 100"
-      fill="none"
-      strokeLinecap="round"
-      stroke="rgba(255, 0, 0, 0.5)"
+      viewBox='0 0 100 100'
+      fill='none'
+      strokeLinecap='round'
+      stroke='rgba(255, 0, 0, 0.5)'
       strokeWidth={5}
       style={{
         top: 0,
@@ -23,11 +23,12 @@ function Viewfinder({containerWidth, containerHeight}: Props) {
         position: 'absolute',
         width: '100%',
         height: '100%',
-      }}>
-      <path d="M13,0 L0,0 L0,13" />
-      <path d="M0,87 L0,100 L13,100" />
-      <path d="M87,100 L100,100 L100,87" />
-      <path d="M100,13 L100,0 87,0" />
+      }}
+    >
+      <path d='M13,0 L0,0 L0,13' />
+      <path d='M0,87 L0,100 L13,100' />
+      <path d='M87,100 L100,100 L100,87' />
+      <path d='M100,13 L100,0 87,0' />
     </svg>
   );
 }

@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <h1>Vite + React</h1>
-      <div className="card">
+      <div className='card'>
         <BarcodeScanner
           onScan={(text) => {
             console.log('Successfully scanned this text:', text);
