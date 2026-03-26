@@ -1,5 +1,5 @@
 {
-  "name": "@thewirv/react-barcode-scanner",
+  "name": "@amosschann/react-barcode-scanner",
   "version": "3.4.0",
   "description": "A React component for scanning QR codes and other barcodes via webcam",
   "author": "Marcel Grünwald",
